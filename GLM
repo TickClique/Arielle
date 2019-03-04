@@ -1,0 +1,95 @@
+#infection status~ tick burdens
+library(readr)
+Burden16 &lt;- read_csv(&quot;Box Sync/Masters/TickBurden/Burden R/Burden16.csv&quot;,
+col_types = cols(BBSL = col_number(),
+IpacL = col_number(), IxodesTotal = col_number(),
+PredShanDiv16 = col_number(), QILab16 = col_number(),
+SMShanDiv16 = col_number(), Weight = col_number()),
+na = &quot;null&quot;)
+## Warning in rbind(names(probs), probs_f): number of columns of result is
+not
+## a multiple of vector length (arg 1)
+## Warning: 41 parsing failures.
+## row # A tibble: 5 x 5 col row col expected actual file
+expected &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+actual 1 16 Weight a number n/a &#39;Box Sync/Masters/TickBurden/Burden
+R/Burd… file 2 16 BBSL a number n/a &#39;Box
+Sync/Masters/TickBurden/Burden R/Burd… row 3 25 IpacL a number n/a
+&#39;Box Sync/Masters/TickBurden/Burden R/Burd… col 4 29 IpacL a number n/a
+&#39;Box Sync/Masters/TickBurden/Burden R/Burd… expected 5 46 Weight a number
+n/a &#39;Box Sync/Masters/TickBurden/Burden R/Burd…
+## ... ................. ...
+..........................................................................
+........
+..........................................................................
+......
+..........................................................................
+....
+..........................................................................
+...
+..........................................................................
+...
+..........................................................................
+........
+..........................................................................
+## See problems(...) for more details.
+View(Burden16)
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+attach(Burden16)
+#just larvae
+infection=glm(BBSL~IpacL, family = &quot;binomial&quot;)
+summary(infection)
+##
+## Call:
+## glm(formula = BBSL ~ IpacL, family = &quot;binomial&quot;)
+##
+## Deviance Residuals:
+## Min 1Q Median 3Q Max
+## -1.2897 -0.4773 -0.4404 -0.4404 2.1824
+##
+## Coefficients:
+## Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -2.28437 0.28347 -8.059 7.71e-16 ***
+## IpacL 0.16964 0.05776 2.937 0.00331 **
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## (Dispersion parameter for binomial family taken to be 1)
+##
+## Null deviance: 125.51 on 163 degrees of freedom
+## Residual deviance: 115.53 on 162 degrees of freedom
+## (34 observations deleted due to missingness)
+
+## AIC: 119.53
+##
+## Number of Fisher Scoring iterations: 4
+#all ixodes attached
+ixodes=glm(BBSL~IxodesTotal, family = &quot;binomial&quot;, Burden16)
+summary(ixodes)
+##
+## Call:
+## glm(formula = BBSL ~ IxodesTotal, family = &quot;binomial&quot;, data = Burden16)
+##
+## Deviance Residuals:
+## Min 1Q Median 3Q Max
+## -1.2282 -0.4701 -0.4353 -0.4353 2.1924
+##
+## Coefficients:
+## Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -2.30865 0.28386 -8.133 4.19e-16 ***
+## IxodesTotal 0.16182 0.05399 2.997 0.00272 **
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+##
+## (Dispersion parameter for binomial family taken to be 1)
+##
+## Null deviance: 126.06 on 165 degrees of freedom
+## Residual deviance: 115.83 on 164 degrees of freedom
+## (32 observations deleted due to missingness)
+## AIC: 119.83
+##
+## Number of Fisher Scoring iterations: 4
+#not much different between the models, i think it is safe to go with just
+the larvea
+barplot(table(BBSL))
