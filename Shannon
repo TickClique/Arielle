@@ -1,0 +1,92 @@
+library(vegan)
+## Warning: package &#39;vegan&#39; was built under R version 3.4.4
+## Loading required package: permute
+## Loading required package: lattice
+## This is vegan 2.5-2
+library(readr)
+WPSMShan18 &lt;- read_csv(&#39;/Users/jordansalomon/Desktop/WPSMShan18.csv&#39;)
+## Parsed with column specification:
+## cols(
+## Nefu = col_integer(),
+## Peca = col_integer(),
+## Pema = col_integer(),
+## Petr = col_integer(),
+## Mica = col_integer(),
+## REME = col_integer()
+## )
+View(WPSMShan18)
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+#Shannon calculation
+WPShannon=diversity(WPSMShan18, index = &quot;shannon&quot;)
+WPShannon
+## [1] 1.062535
+smshan18SMI &lt;- read_csv(&#39;/Users/jordansalomon/Desktop/smshan18SMI.csv&#39;)
+## Parsed with column specification:
+## cols(
+## Nefu = col_integer(),
+## Peca = col_integer(),
+
+## Pema = col_integer(),
+## Petr = col_integer(),
+## Mica = col_integer(),
+## REME = col_integer()
+## )
+View(smshan18SMI)
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+#Shannon calculation
+SMIShannon=diversity(smshan18SMI, index = &quot;shannon&quot;)
+SMIShannon
+## [1] 0
+smshan18JSCP &lt;- read_csv(&#39;/Users/jordansalomon/Desktop/smshan18JSCP.csv&#39;)
+## Parsed with column specification:
+## cols(
+## Nefu = col_integer(),
+## Peca = col_integer(),
+## Pema = col_integer(),
+## Petr = col_integer(),
+## Mica = col_integer(),
+## REME = col_integer()
+## )
+View(smshan18JSCP)
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+#Shannon calculation
+JSCPShannon=diversity(smshan18JSCP, index = &quot;shannon&quot;)
+JSCPShannon
+## [1] 0.5479338
+smshan18WDLP &lt;- read_csv(&#39;/Users/jordansalomon/Desktop/smshan18WDLP.csv&#39;)
+## Parsed with column specification:
+## cols(
+## Nefu = col_integer(),
+## Peca = col_integer(),
+## Pema = col_integer(),
+## Petr = col_integer(),
+## Mica = col_integer(),
+## REME = col_integer()
+## )
+View(smshan18WDLP)
+
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+#Shannon calculation
+WDLPShannon=diversity(smshan18WDLP, index = &quot;shannon&quot;)
+WDLPShannon
+## [1] 0.9622678
+smshan18CCSP &lt;- read_csv(&#39;/Users/jordansalomon/Desktop/smshan18CCSP.csv&#39;)
+## Parsed with column specification:
+## cols(
+## Nefu = col_integer(),
+## Peca = col_integer(),
+## Pema = col_integer(),
+## Petr = col_integer(),
+## Mica = col_integer(),
+## REME = col_integer()
+## )
+View(smshan18CCSP)
+## Warning: running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/
+## R.framework/Resources/modules/R_de.so&#39;&#39; had status 1
+#Shannon calculation
+CCSPShannon=diversity(smshan18CCSP, index = &quot;shannon&quot;)
+CCSPShannon
