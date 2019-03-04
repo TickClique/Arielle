@@ -1,0 +1,70 @@
+---
+title: "SmallMammalNEFUAbundances17"
+author: "Jordan Salomon"
+date: "6/29/2018"
+output: word_document
+---
+This is the 2017 nefu abundances, excluding escapes. 
+```{r}
+library(Rcapture)
+library(readr)
+WPNEFUab17 <- read_csv("~/Desktop/Swei Lab/Masters/WPNEFUab17.csv")
+View(WPNEFUab17)
+WP<-descriptive(WPNEFUab17, dfreq=FALSE)
+WP
+WPnefuab=closedp.t(WPNEFUab17, dfreq = FALSE, dtype = "hist")
+WPnefuab
+```
+
+
+```{r}
+
+JSCP<-descriptive(JSCPNEFUab17, dfreq=FALSE)
+JSCP
+JSCPnefuab=closedp.t(JSCPNEFUab17, dfreq = FALSE, dtype = "hist")
+JSCPnefuab
+```
+
+
+```{r}
+WDLP<-descriptive(WDLPNEFUab17, dfreq=FALSE)
+WDLP
+WDLPnefuab=closedp.t(WDLPNEFUab17, dfreq = FALSE, dtype = "hist")
+WDLPnefuab
+```
+
+```{r}
+HOS<-descriptive(HOSNEFUab17, dfreq=FALSE)
+HOS
+HOSnefuab=closedp.t(HOSNEFUab17, dfreq = FALSE, dtype = "hist")
+HOSnefuab
+```
+
+```{r}
+TUP<-descriptive(TUPNEFUab17, dfreq=FALSE)
+TUP
+TUPnefuab=closedp.t(TUPNEFUab17, dfreq = FALSE, dtype = "hist")
+TUPnefuab
+```
+
+```{r}
+LFY<-descriptive(LFYNEFUab17, dfreq=FALSE)
+LFY
+LFYnefuab=closedp.t(LFYNEFUab17, dfreq = FALSE, dtype = "hist")
+LFYnefuab
+```
+
+```{r}
+CCSP<-descriptive(CCSPNEFU17, dfreq=FALSE)
+CCSP
+CCSPnefuab=closedp.t(CCSPNEFU17, dfreq = FALSE, dtype = "hist")
+CCSPnefuab
+```
+
+```{r}
+SLRP<-descriptive(SLRPNEFUab17, dfreq=FALSE)
+SLRP
+SLRPnefuab=closedp.t(SLRPNEFUab17, dfreq = FALSE, dtype = "hist")
+SLRPnefuab
+```
+
